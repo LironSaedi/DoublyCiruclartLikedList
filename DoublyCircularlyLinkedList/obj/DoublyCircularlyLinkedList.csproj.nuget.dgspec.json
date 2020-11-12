@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Liron.Saedi\\source\\repos\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj": {}
+    "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Liron.Saedi\\source\\repos\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj": {
+    "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Liron.Saedi\\source\\repos\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj",
+        "projectUniqueName": "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj",
         "projectName": "DoublyCircularlyLinkedList",
-        "projectPath": "C:\\Users\\Liron.Saedi\\source\\repos\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj",
+        "projectPath": "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList.csproj",
         "packagesPath": "C:\\Users\\Liron.Saedi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Liron.Saedi\\source\\repos\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\obj\\",
+        "outputPath": "\\\\GMRDC1\\Folder Redirection\\Liron.Saedi\\Documents\\GitHub\\DoublyCircularlyLinkedList\\DoublyCircularlyLinkedList\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -31,6 +31,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,6 +43,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -57,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

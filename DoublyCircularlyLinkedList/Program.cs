@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DoublyCircularlyLinkedList;
+using System;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DoublyCircularlyLinkedList
 {
@@ -14,23 +16,17 @@ namespace DoublyCircularlyLinkedList
             Value = value;
         }
     }
-    class DoublyLinkedListNode<T>
+    class DoublyLinkedList<T>
     {
-        public DoublyLinkedListNode<T> Next { get; set; }
-        public DoublyLinkedListNode<T> Previous { get; set; }
+
         public int Count;
         public Node<T> Head;
         public Node<T> Tail;
-        public T Value { get; set; }
 
-        public DoublyLinkedListNode(T value)
-        {
-            Value = value;
-            Next = null;
-            Previous = null;
-        }
 
-        public void AddFirst(T value)
+
+
+        public void AddFirst(T Value)
         {
             if (Head == null)
             {
@@ -75,37 +71,121 @@ namespace DoublyCircularlyLinkedList
                 Tail = nodeToInsert;
                 nodeToInsert.Next = Head;
                 Head.Previous = Tail;
+                Count++;
 
 
             }
         }
 
-        public void AddAfter(Node<T> node, T value)
+        public void AddAfter(T node, T Value)
         {
             Node<T> placeHolder = Head;
             for (int i = 0; i < Count; placeHolder = placeHolder.Next, i++)
             {
-                if(placeHolder == node)
+                if (placeHolder.Value.Equals(node))
                 {
                     Node<T> newNode = new Node<T>(Value);
-                    
-                    newNode.Next = placeHolder.Next.Next;
+
+                    newNode.Next = placeHolder.Next;
                     newNode.Previous = placeHolder;
                     placeHolder.Next = newNode;
+                    placeHolder.Next.Next.Previous = newNode;
+                    Count++;
 
                 }
             }
         }
+
+        public void AddBefore(T node, T Value)
+        {
+            Node<T> placeHolder = Head;
+            for (int i = 0; i < Count; placeHolder = placeHolder.Next, i++)
+            {
+                if (placeHolder.Value.Equals(node))
+                {
+                    Node<T> newNode = new Node<T>(Value);
+
+                    newNode.Previous = placeHolder.Previous;
+                    newNode.Next = placeHolder;
+                    placeHolder.Previous = newNode;
+                    placeHolder.Previous.Previous.Next = newNode;
+                    Count++;
+                }
+            }
+        }
+
+        public bool RemoveFirst()
+        {
+
+            if (Head == null)
+            {
+                return false;
+            }
+            else
+            { 
+                Head = Head.Next;
+                Head.Previous = Tail;
+                Count--;
+                return true;
+
+            }
+        }
+
+        public bool RemoveLast()
+        {
+            if (Head == null)
+            {
+                return false;
+            }
+            else
+            {
+                Node<T> current = Head;
+
+
+
+/*
+                for (int i = 0; i < Count; current = current.Next, i++)
+                {
+                    if (current.Next.Equals(Tail))
+                    {
+                        current.Next = null;
+                        Count--;
+                        Tail = current;
+                        return true;
+                    }
+                }*/
+
+                return false;
+            }
+        }
     }
-
-
-
 }
+
+
+
+
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+
+        DoublyLinkedList<int> list = new DoublyLinkedList<int>();
+
+        list.AddFirst(3);
+        list.AddFirst(2);
+        list.AddFirst(1);
+        ;
+
+        list.AddLast(4);
+        list.AddLast(5);
+        ;
+
+        list.AddBefore(3, 6);
+        ;
+        list.AddAfter(6, 7);
+        ;
+
+
     }
 }
 
