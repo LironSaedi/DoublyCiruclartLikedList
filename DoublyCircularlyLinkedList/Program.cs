@@ -122,13 +122,20 @@ namespace DoublyCircularlyLinkedList
                 return false;
             }
             else
-            { 
+            {
                 Head = Head.Next;
                 Head.Previous = Tail;
+                Tail.Next = Head;
                 Count--;
-                return true;
 
+                if (Count == 0)
+                {
+                    Clear();
+                }
+                return true;
             }
+
+
         }
 
         public bool RemoveLast()
@@ -139,53 +146,119 @@ namespace DoublyCircularlyLinkedList
             }
             else
             {
-                Node<T> current = Head;
+                Tail = Tail.Previous;
+                Head.Previous = Tail;
+                Tail.Next = Head;
 
+                Count--;
 
-
-/*
-                for (int i = 0; i < Count; current = current.Next, i++)
+                if (Count == 0)
                 {
-                    if (current.Next.Equals(Tail))
-                    {
-                        current.Next = null;
-                        Count--;
-                        Tail = current;
-                        return true;
-                    }
-                }*/
-
-                return false;
+                    Clear();
+                }
+                return true;
             }
         }
+
+        public bool Remove(T Value)
+        {
+
+            if (Head == null)
+            {
+                return false;
+            }
+
+            if (Value.Equals(Head))
+            {
+                RemoveFirst();
+            }
+
+            if (Value.Equals(Tail))
+            {
+                RemoveLast();
+            }
+            Node<T> placeHolder = Head;
+            for (int i = 0; i < Count; placeHolder = placeHolder.Next, i++)
+            {
+                if (placeHolder.Value.Equals(Value))
+                {
+                    Node<T> placeHolderPrev = placeHolder.Previous;
+
+
+                    placeHolder = placeHolder.Next;
+                    placeHolder.Previous = placeHolderPrev;
+                    placeHolder.Previous.Next = placeHolder;
+                    Count--;
+
+                    if (Count == 0)
+                    {
+                        Clear();
+                    }
+                    return true;
+
+
+                }
+
+            }
+
+            return false;
+        }
+
+
+        public bool IsEmpty()
+        {
+            if (Head == null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public int Counter => Count;
+
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
+        }
+
     }
-}
 
 
 
 
-class Program
-{
-    static void Main(string[] args)
+    class Program
     {
+        static void Main(string[] args)
+        {
 
-        DoublyLinkedList<int> list = new DoublyLinkedList<int>();
+            DoublyLinkedList<int> list = new DoublyLinkedList<int>();
+            list.AddLast(5);
+            list.Remove(58);
+            //list.AddFirst(3);
+            //list.AddFirst(2);
+            //list.AddFirst(1);
+            //;
 
-        list.AddFirst(3);
-        list.AddFirst(2);
-        list.AddFirst(1);
-        ;
+            //list.AddLast(4);
+            //list.AddLast(5);
+            //;
 
-        list.AddLast(4);
-        list.AddLast(5);
-        ;
-
-        list.AddBefore(3, 6);
-        ;
-        list.AddAfter(6, 7);
-        ;
+            //list.AddBefore(3, 6);
+            //;
+            //list.AddAfter(6, 7);
+            //;
 
 
+            //list.RemoveFirst();
+            //;
+            //list.RemoveLast();
+            //;
+
+            //list.Remove(6);
+            ;
+        }
     }
 }
 
